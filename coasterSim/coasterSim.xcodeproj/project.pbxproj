@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE2AC80818AF7F2400D0E8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3418AF7D8A006CBFA2 /* main.m */; };
+		CE68065C18AF85E100317331 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68065B18AF85E100317331 /* MainScene.m */; };
 		CEDF289218AF7D89006CBFA2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289118AF7D89006CBFA2 /* QuartzCore.framework */; };
 		CEDF289418AF7D89006CBFA2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289318AF7D89006CBFA2 /* OpenGLES.framework */; };
 		CEDF289618AF7D89006CBFA2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289518AF7D89006CBFA2 /* OpenAL.framework */; };
@@ -140,10 +141,11 @@
 		CEDF2A3018AF7D8A006CBFA2 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A2F18AF7D8A006CBFA2 /* vec4.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CEDF2A3818AF7D8A006CBFA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */; };
 		CEDF2A3B18AF7D8A006CBFA2 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3A18AF7D8A006CBFA2 /* HelloWorldLayer.m */; };
-		CEDF2A3E18AF7D8A006CBFA2 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3D18AF7D8A006CBFA2 /* IntroLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE68065A18AF85E100317331 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		CE68065B18AF85E100317331 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		CEDF288E18AF7D89006CBFA2 /* coasterSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coasterSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDF289118AF7D89006CBFA2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEDF289318AF7D89006CBFA2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -423,8 +425,6 @@
 		CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEDF2A3918AF7D8A006CBFA2 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		CEDF2A3A18AF7D8A006CBFA2 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		CEDF2A3C18AF7D8A006CBFA2 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		CEDF2A3D18AF7D8A006CBFA2 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +448,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE2AC80918AF841500D0E8E1 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF2A3918AF7D8A006CBFA2 /* HelloWorldLayer.h */,
+				CEDF2A3A18AF7D8A006CBFA2 /* HelloWorldLayer.m */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		CE68065D18AF85EA00317331 /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CE68065A18AF85E100317331 /* MainScene.h */,
+				CE68065B18AF85E100317331 /* MainScene.m */,
+			);
+			name = scenes;
+			sourceTree = "<group>";
+		};
 		CEDF288518AF7D89006CBFA2 = {
 			isa = PBXGroup;
 			children = (
@@ -485,12 +503,10 @@
 		CEDF28A518AF7D89006CBFA2 /* coasterSim */ = {
 			isa = PBXGroup;
 			children = (
+				CE68065D18AF85EA00317331 /* scenes */,
 				CEDF2A3618AF7D8A006CBFA2 /* AppDelegate.h */,
 				CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */,
-				CEDF2A3918AF7D8A006CBFA2 /* HelloWorldLayer.h */,
-				CEDF2A3A18AF7D8A006CBFA2 /* HelloWorldLayer.m */,
-				CEDF2A3C18AF7D8A006CBFA2 /* IntroLayer.h */,
-				CEDF2A3D18AF7D8A006CBFA2 /* IntroLayer.m */,
+				CE2AC80918AF841500D0E8E1 /* Layers */,
 				CEDF28A618AF7D89006CBFA2 /* Resources */,
 				CEDF28BE18AF7D89006CBFA2 /* libs */,
 				CEDF2A3218AF7D8A006CBFA2 /* Supporting Files */,
@@ -954,7 +970,6 @@
 			files = (
 				CE2AC80818AF7F2400D0E8E1 /* main.m in Sources */,
 				CEDF2A3818AF7D8A006CBFA2 /* AppDelegate.m in Sources */,
-				CEDF2A3E18AF7D8A006CBFA2 /* IntroLayer.m in Sources */,
 				CEDF2A3B18AF7D8A006CBFA2 /* HelloWorldLayer.m in Sources */,
 				CEDF298218AF7D8A006CBFA2 /* CCTexturePVR.m in Sources */,
 				CEDF29D218AF7D8A006CBFA2 /* ccUtils.c in Sources */,
@@ -1056,6 +1071,7 @@
 				CEDF28F918AF7D89006CBFA2 /* CCConfiguration.m in Sources */,
 				CEDF295518AF7D8A006CBFA2 /* CCScheduler.m in Sources */,
 				CEDF29A518AF7D8A006CBFA2 /* CCDirectorIOS.m in Sources */,
+				CE68065C18AF85E100317331 /* MainScene.m in Sources */,
 				CEDF292718AF7D89006CBFA2 /* CCMenu.m in Sources */,
 				CEDF2A3018AF7D8A006CBFA2 /* vec4.c in Sources */,
 				CEDF28F218AF7D89006CBFA2 /* CCCamera.m in Sources */,
