@@ -463,6 +463,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BF80DE318AFE9DB001607DC /* requirePngs */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF28A718AF7D89006CBFA2 /* Default.png */,
+				CEDF28A918AF7D89006CBFA2 /* Default@2x.png */,
+				CEDF28AB18AF7D89006CBFA2 /* Default-568h@2x.png */,
+				CEDF28AD18AF7D89006CBFA2 /* Default-Landscape~ipad.png */,
+				CEDF28AF18AF7D89006CBFA2 /* Icon-72.png */,
+				CEDF28B118AF7D89006CBFA2 /* Icon-Small-50.png */,
+				CEDF28B318AF7D89006CBFA2 /* Icon-Small.png */,
+				CEDF28B518AF7D89006CBFA2 /* Icon-Small@2x.png */,
+				CEDF28B718AF7D89006CBFA2 /* Icon.png */,
+				CEDF28B918AF7D89006CBFA2 /* Icon@2x.png */,
+				CEDF28BB18AF7D89006CBFA2 /* Info.plist */,
+				CEDF28BC18AF7D89006CBFA2 /* iTunesArtwork */,
+			);
+			name = requirePngs;
+			sourceTree = "<group>";
+		};
 		CE2AC80918AF841500D0E8E1 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,8 +552,6 @@
 				CEDF28A618AF7D89006CBFA2 /* Resources */,
 				CEDF28BE18AF7D89006CBFA2 /* libs */,
 				CEDF2A3218AF7D8A006CBFA2 /* Supporting Files */,
-				5BF80DE018AFC975001607DC /* Statics.h */,
-				5BF80DE118AFC975001607DC /* Statics.m */,
 			);
 			path = coasterSim;
 			sourceTree = "<group>";
@@ -542,18 +559,7 @@
 		CEDF28A618AF7D89006CBFA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CEDF28A718AF7D89006CBFA2 /* Default.png */,
-				CEDF28A918AF7D89006CBFA2 /* Default@2x.png */,
-				CEDF28AB18AF7D89006CBFA2 /* Default-568h@2x.png */,
-				CEDF28AD18AF7D89006CBFA2 /* Default-Landscape~ipad.png */,
-				CEDF28AF18AF7D89006CBFA2 /* Icon-72.png */,
-				CEDF28B118AF7D89006CBFA2 /* Icon-Small-50.png */,
-				CEDF28B318AF7D89006CBFA2 /* Icon-Small.png */,
-				CEDF28B518AF7D89006CBFA2 /* Icon-Small@2x.png */,
-				CEDF28B718AF7D89006CBFA2 /* Icon.png */,
-				CEDF28B918AF7D89006CBFA2 /* Icon@2x.png */,
-				CEDF28BB18AF7D89006CBFA2 /* Info.plist */,
-				CEDF28BC18AF7D89006CBFA2 /* iTunesArtwork */,
+				5BF80DE318AFE9DB001607DC /* requirePngs */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -914,6 +920,8 @@
 		CEDF2A3218AF7D8A006CBFA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5BF80DE018AFC975001607DC /* Statics.h */,
+				5BF80DE118AFC975001607DC /* Statics.m */,
 				CEDF2A3318AF7D8A006CBFA2 /* Prefix.pch */,
 				CEDF2A3418AF7D8A006CBFA2 /* main.m */,
 			);
