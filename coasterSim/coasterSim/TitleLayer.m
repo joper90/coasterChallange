@@ -8,23 +8,21 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "TitleLayer.h"
 #import "AppDelegate.h"
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation TitleLayer
 
 // on "init" you need to initialize your instance
 -(id) init
 {
-    //init the touch handler
-    self.touchEnabled = YES;
-    
-    
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
+        CCLOG(@"HelloworldLayer : init()");
+        //init the touch handler this is for multi touches.
+        self.touchEnabled = YES;
+        
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Press a key to Start.." fontName:@"Marker Felt" fontSize:64];
 
@@ -42,10 +40,10 @@
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    CCLOG(@"HelloworldLayer : Touches() called");
 }
 
 
-// on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
 

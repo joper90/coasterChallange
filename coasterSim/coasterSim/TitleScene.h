@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "HelloWorldLayer.h"
+#import "TitleLayer.h"
 
-@interface MainScene : CCScene
+@interface TitleScene : CCScene
 {
     
 }

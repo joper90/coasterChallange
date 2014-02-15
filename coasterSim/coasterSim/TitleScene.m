@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 com.funkVoodoo. All rights reserved.
 //
 
-#import "MainScene.h"
+#import "TitleScene.h"
 
-@implementation MainScene
+@implementation TitleScene
 
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -18,7 +18,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	TitleLayer *layer = [TitleLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
