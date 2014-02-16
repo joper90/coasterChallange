@@ -14,6 +14,7 @@
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
+    CCLOG(@"TitleScene : +scene node");
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -23,6 +24,11 @@
 	// add layer as a child to scene
 	[scene addChild: layer];
 	
+    //init the Engine.
+    BOOL worked = [[CoasterEngine instance]isAlive];
+    
+    CCLOG(@"TitleScene : is Engine Alive %d", worked);
+    
 	// return the scene
 	return scene;
 }

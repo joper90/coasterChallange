@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
+#import "Statics.h"
 
 @interface CoasterEngine : NSObject
+{
+    
+}
+//singleton of the engine
++(CoasterEngine*) instance;
 
+-(BOOL)isAlive;
 @end
