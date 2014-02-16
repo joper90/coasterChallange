@@ -11,4 +11,17 @@
 
 @implementation FG_GameLayer
 
+-(id) init
+{
+	if( (self=[super init]) ) {
+		
+        CCLOG(@"FG_GameLayer : init()");
+        //No handling enabled for this layer
+        self.touchEnabled = NO;
+        
+	}
+	return self;
+}
+
+
 @end

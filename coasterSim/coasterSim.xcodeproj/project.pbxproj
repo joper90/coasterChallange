@@ -14,6 +14,7 @@
 		5BF80DE218AFC975001607DC /* Statics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DE118AFC975001607DC /* Statics.m */; };
 		CE2AC80818AF7F2400D0E8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3418AF7D8A006CBFA2 /* main.m */; };
 		CE68065C18AF85E100317331 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68065B18AF85E100317331 /* TitleScene.m */; };
+		CEBAB4F218B0C40700836CBE /* 1_yellowHD.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */; };
 		CEDF289218AF7D89006CBFA2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289118AF7D89006CBFA2 /* QuartzCore.framework */; };
 		CEDF289418AF7D89006CBFA2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289318AF7D89006CBFA2 /* OpenGLES.framework */; };
 		CEDF289618AF7D89006CBFA2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289518AF7D89006CBFA2 /* OpenAL.framework */; };
@@ -146,6 +147,7 @@
 		CEDF2A3018AF7D8A006CBFA2 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A2F18AF7D8A006CBFA2 /* vec4.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CEDF2A3818AF7D8A006CBFA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */; };
 		CEDF2A3B18AF7D8A006CBFA2 /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3A18AF7D8A006CBFA2 /* TitleLayer.m */; };
+		CEF6A95518B0DD7C00BAC61B /* CoasterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF6A95418B0DD7C00BAC61B /* CoasterEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,7 @@
 		5BF80DE118AFC975001607DC /* Statics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statics.m; sourceTree = "<group>"; };
 		CE68065A18AF85E100317331 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		CE68065B18AF85E100317331 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
+		CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_yellowHD.png; sourceTree = "<group>"; };
 		CEDF288E18AF7D89006CBFA2 /* coasterSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coasterSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDF289118AF7D89006CBFA2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEDF289318AF7D89006CBFA2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -440,6 +443,8 @@
 		CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEDF2A3918AF7D8A006CBFA2 /* TitleLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleLayer.h; sourceTree = "<group>"; };
 		CEDF2A3A18AF7D8A006CBFA2 /* TitleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleLayer.m; sourceTree = "<group>"; };
+		CEF6A95318B0DD7C00BAC61B /* CoasterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoasterEngine.h; sourceTree = "<group>"; };
+		CEF6A95418B0DD7C00BAC61B /* CoasterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoasterEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,6 +550,8 @@
 		CEDF28A518AF7D89006CBFA2 /* coasterSim */ = {
 			isa = PBXGroup;
 			children = (
+				CEF6A95318B0DD7C00BAC61B /* CoasterEngine.h */,
+				CEF6A95418B0DD7C00BAC61B /* CoasterEngine.m */,
 				CE68065D18AF85EA00317331 /* scenes */,
 				CEDF2A3618AF7D8A006CBFA2 /* AppDelegate.h */,
 				CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */,
@@ -559,6 +566,7 @@
 		CEDF28A618AF7D89006CBFA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */,
 				5BF80DE318AFE9DB001607DC /* requirePngs */,
 			);
 			name = Resources;
@@ -989,6 +997,7 @@
 				CEDF28BD18AF7D89006CBFA2 /* iTunesArtwork in Resources */,
 				CEDF28B618AF7D89006CBFA2 /* Icon-Small@2x.png in Resources */,
 				CEDF28AE18AF7D89006CBFA2 /* Default-Landscape~ipad.png in Resources */,
+				CEBAB4F218B0C40700836CBE /* 1_yellowHD.png in Resources */,
 				CEDF28AC18AF7D89006CBFA2 /* Default-568h@2x.png in Resources */,
 				CEDF28BA18AF7D89006CBFA2 /* Icon@2x.png in Resources */,
 			);
@@ -1028,6 +1037,7 @@
 				CEDF294218AF7D89006CBFA2 /* CCParticleSystemQuad.m in Sources */,
 				CEDF290518AF7D89006CBFA2 /* CCDrawNode.m in Sources */,
 				5BF80DE218AFC975001607DC /* Statics.m in Sources */,
+				CEF6A95518B0DD7C00BAC61B /* CoasterEngine.m in Sources */,
 				5BF80DD318AFC6FB001607DC /* BG_GameLayer.m in Sources */,
 				CEDF299718AF7D8A006CBFA2 /* CCTransitionPageTurn.m in Sources */,
 				CEDF28C818AF7D89006CBFA2 /* CCActionCatmullRom.m in Sources */,

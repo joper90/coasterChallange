@@ -10,6 +10,7 @@
 // Import the interfaces
 #import "TitleLayer.h"
 #import "AppDelegate.h"
+#import "GameScene.h"
 
 // HelloWorldLayer implementation
 @implementation TitleLayer
@@ -21,7 +22,7 @@
 		
         CCLOG(@"HelloworldLayer : init()");
         //init the touch handler this is for multi touches.
-        self.touchEnabled = YES;
+        [[[CCDirector sharedDirector]touchDispatcher]addTargetedDelegate:self priority:0 swallowsTouches:YES];
         
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Press a key to Start.." fontName:@"Marker Felt" fontSize:64];
@@ -38,9 +39,15 @@
 	return self;
 }
 
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CCLOG(@"HelloworldLayer : Touches() called");
+    //Change to the main game layer now
+    CCTransitionFade* ccFade = [CCTransitionFade transitionWithDuration:0.5f scene:[GameScene scene]];
+    [[CCDirector sharedDirector]pushScene:ccFade];
+    
+    //I want to deal with this touch.
+    return YES;
 }
 
 

@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameLayer : CCLayer {
-    
+@interface GameLayer : CCLayer
+{
+    CCSprite *testMob;
 }
 
 @end

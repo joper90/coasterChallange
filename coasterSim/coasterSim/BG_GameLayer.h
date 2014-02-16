@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BG_GameLayer : CCLayer {
+@interface BG_GameLayer : CCLayer
+{
     
 }
 
