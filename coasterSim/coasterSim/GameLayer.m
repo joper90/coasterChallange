@@ -35,30 +35,34 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    CCLOG(@"HelloworldLayer : Touches() called");
     //Change to the main game layer now
-
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     //Find which mob was touched.
-    NSNumber *tagLookUp = [NSNumber numberWithInteger:[[CoasterEngine instance]whichRiderIsTouched:touchLocation]];
-    [[CoasterEngine instance]updateRiderPositionByTag:tagLookUp withPosition:touchLocation];
+    _currentTag = [[CoasterEngine instance]whichRiderIsTouched:touchLocation];
     
+    CCLOG(@"GameLayer : TouchesBegan() called %@", _currentTag);
+    
+    [[CoasterEngine instance]setRiderInitalTouchedPositionByTag:_currentTag withPosition:touchLocation];
     //I want to deal with this touch.
     return YES;
 }
 
-- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
     
+    //Get all the relevent info from this layer
+    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
     oldTouchLocation = [[CCDirector sharedDirector] convertToGL:oldTouchLocation];
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
-    
-    CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
-    
-    
-   // CGPoint newPos = ccpAdd(testMob.position, translation);
-   // testMob.position = newPos;
+
+    //Call to update the current rider.
+    [[CoasterEngine instance]updateRiderPostionByTag:_currentTag withOldCoords:oldTouchLocation withCoords:touchLocation];
+}
+
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CCLOG(@"GameLayer : TouchesEnded called for %@",_currentTag);
 }
 
 @end

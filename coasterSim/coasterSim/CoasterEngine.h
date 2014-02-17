@@ -23,6 +23,7 @@
 
 -(BOOL)isAlive;
 -(CCSprite*) getSpriteForKey:(id)key;
--(NSInteger) whichRiderIsTouched:(CGPoint) touchLocation;
--(void) updateRiderPositionByTag:(id) riderTag withPosition:(CGPoint) location;
+-(id) whichRiderIsTouched:(CGPoint) touchLocation;
+-(void) setRiderInitalTouchedPositionByTag:(id) riderTag withPosition:(CGPoint) location;
+-(void) updateRiderPostionByTag:(id) riderTag withOldCoords:(CGPoint) oldTouchLocation withCoords:(CGPoint)touchLocation;
 @end

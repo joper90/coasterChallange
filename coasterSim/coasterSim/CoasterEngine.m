@@ -48,24 +48,32 @@ static CoasterEngine* coasterEngine = nil;
     return [_ridersMap objectForKey:key];
 }
 
--(NSInteger)whichRiderIsTouched:(CGPoint)touchLocation
+-(id)whichRiderIsTouched:(CGPoint)touchLocation
 {
     for (id key in [CoasterEngine instance].ridersMap)
     {
         CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
         if (CGRectContainsPoint(rider.boundingBox, touchLocation))
         {
-            return rider.tag;
+            return key;
         }
     }
     return nil;
 }
 
--(void)updateRiderPositionByTag:(id)riderTag withPosition:(CGPoint)location
+-(void)setRiderInitalTouchedPositionByTag:(id)riderTag withPosition:(CGPoint)location
 {
     [[_ridersMap objectForKey:riderTag]setPosition:location];
 }
     
-
+-(void)updateRiderPostionByTag:(id)riderTag withOldCoords:(CGPoint)oldTouchLocation withCoords:(CGPoint)touchLocation
+{
+    
+    CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:riderTag];
+    
+    CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
+    CGPoint newPos = ccpAdd(rider.position, translation);
+    rider.position = newPos;
+}
 
 @end

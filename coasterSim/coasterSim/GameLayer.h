@@ -12,5 +12,6 @@
 @interface GameLayer : CCLayer
 {
 }
+@property id currentTag;
 
 @end
