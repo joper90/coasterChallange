@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "TitleLayer.h"
+#import "Statics.h"
 #import "AppDelegate.h"
 #import "GameScene.h"
 
@@ -19,19 +20,15 @@
 -(id) init
 {
 	if( (self=[super init]) ) {
-		
         CCLOG(@"HelloworldLayer : init()");
         //init the touch handler this is for multi touches.
         [[[CCDirector sharedDirector]touchDispatcher]addTargetedDelegate:self priority:0 swallowsTouches:YES];
         
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Press a key to Start.." fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Touch to start.." fontName:@"DayOfTheTentacle" fontSize:54];
 
-		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
 		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+		label.position = [Statics getCenter];
 		
 		// add the label as a child to this Layer
 		[self addChild: label];

@@ -14,8 +14,15 @@
 {
     
 }
+
+@property NSMutableDictionary *ridersMap;
+
+
 //singleton of the engine
 +(CoasterEngine*) instance;
 
 -(BOOL)isAlive;
+-(CCSprite*) getSpriteForKey:(id)key;
+-(NSInteger) whichRiderIsTouched:(CGPoint) touchLocation;
+-(void) updateRiderPositionByTag:(id) riderTag withPosition:(CGPoint) location;
 @end

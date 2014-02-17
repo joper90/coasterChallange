@@ -30,6 +30,9 @@ static CoasterEngine* coasterEngine = nil;
     self = [super self];
     if (self != nil)
     {
+        //Setup the Dictionary
+        _ridersMap = [[NSMutableDictionary alloc]init];
+        
         //Setup stuff here
     }
     return self;
@@ -39,6 +42,30 @@ static CoasterEngine* coasterEngine = nil;
 {
     return YES;
 }
+
+-(CCSprite *)getSpriteForKey:(id)key
+{
+    return [_ridersMap objectForKey:key];
+}
+
+-(NSInteger)whichRiderIsTouched:(CGPoint)touchLocation
+{
+    for (id key in [CoasterEngine instance].ridersMap)
+    {
+        CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
+        if (CGRectContainsPoint(rider.boundingBox, touchLocation))
+        {
+            return rider.tag;
+        }
+    }
+    return nil;
+}
+
+-(void)updateRiderPositionByTag:(id)riderTag withPosition:(CGPoint)location
+{
+    [[_ridersMap objectForKey:riderTag]setPosition:location];
+}
+    
 
 
 @end

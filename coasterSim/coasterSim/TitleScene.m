@@ -8,6 +8,9 @@
 
 #import "TitleScene.h"
 
+#import "TitleLayer.h"
+#import "CoasterEngine.h"
+
 @implementation TitleScene
 
 

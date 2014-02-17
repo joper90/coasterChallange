@@ -11,7 +11,6 @@
 
 @interface GameLayer : CCLayer
 {
-    CCSprite *testMob;
 }
 
 @end

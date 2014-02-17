@@ -7,6 +7,7 @@
 //
 
 #import "GameLayer.h"
+#import "CoasterEngine.h"
 
 
 @implementation GameLayer
@@ -18,11 +19,16 @@
         CCLOG(@"GameLayer : init()");
         //Yes handling enabled for this layer
         [[[CCDirector sharedDirector]touchDispatcher]addTargetedDelegate:self priority:0 swallowsTouches:YES];
+       
+        //Now display each element on the screen
         
-        testMob = [CCSprite spriteWithFile:@"1_yellowHD.png"];
-        testMob.position = ccp(400, 400);
+        for (id key in [CoasterEngine instance].ridersMap)
+        {
+            CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
+            [self addChild:rider];
+        }
         
-        [self addChild:testMob];
+        //[self addChild:testMob];
 	}
 	return self;
 }
@@ -33,7 +39,9 @@
     //Change to the main game layer now
 
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-    testMob.position = touchLocation;
+    //Find which mob was touched.
+    NSNumber *tagLookUp = [NSNumber numberWithInteger:[[CoasterEngine instance]whichRiderIsTouched:touchLocation]];
+    [[CoasterEngine instance]updateRiderPositionByTag:tagLookUp withPosition:touchLocation];
     
     //I want to deal with this touch.
     return YES;
@@ -47,8 +55,10 @@
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
     
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
-    CGPoint newPos = ccpAdd(testMob.position, translation);
-    testMob.position = newPos;
+    
+    
+   // CGPoint newPos = ccpAdd(testMob.position, translation);
+   // testMob.position = newPos;
 }
 
 @end

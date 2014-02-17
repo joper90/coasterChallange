@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "TitleLayer.h"
-#import "CoasterEngine.h"
 
 @interface TitleScene : CCScene
 {
