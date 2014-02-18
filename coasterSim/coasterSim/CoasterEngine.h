@@ -16,6 +16,7 @@
 }
 
 @property NSMutableDictionary *ridersMap;
+@property NSMutableArray *preBoardingLocations;
 
 
 //singleton of the engine
@@ -26,4 +27,6 @@
 -(id) whichRiderIsTouched:(CGPoint) touchLocation;
 -(void) setRiderInitalTouchedPositionByTag:(id) riderTag withPosition:(CGPoint) location;
 -(void) updateRiderPostionByTag:(id) riderTag withOldCoords:(CGPoint) oldTouchLocation withCoords:(CGPoint)touchLocation;
+
+-(void) privateSetupPreBoardingLocations;
 @end

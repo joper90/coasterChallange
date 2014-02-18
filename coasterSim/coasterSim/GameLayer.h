@@ -13,5 +13,6 @@
 {
 }
 @property id currentTag;
-
+@property CCLabelTTF *locationLocationLocation;
+@property CGPoint *lastTouch;
 @end

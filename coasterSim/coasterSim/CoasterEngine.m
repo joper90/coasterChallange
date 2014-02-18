@@ -7,6 +7,7 @@
 //
 
 #import "CoasterEngine.h"
+#import "BoardingLocation.h"
 
 @implementation CoasterEngine
 
@@ -30,12 +31,46 @@ static CoasterEngine* coasterEngine = nil;
     self = [super self];
     if (self != nil)
     {
-        //Setup the Dictionary
+        //Setup any vars like the Dictionary
         _ridersMap = [[NSMutableDictionary alloc]init];
+        _preBoardingLocations = [[NSMutableArray alloc]init];
+       
+        [self privateSetupPreBoardingLocations];
         
-        //Setup stuff here
     }
     return self;
+}
+
+-(void) privateSetupPreBoardingLocations
+{
+    //Setup the preBoardingArray;
+    int currentXPos = LOADUP_START_X_POS;
+    int currentYPos = LOADUP_START_Y_POS;
+    
+    //Load up the Ten pre boarding locations
+    for (int a =0; a < 10;a++)
+    {
+        //If at 5 (well 4) then we need to incremen the y position to start the
+        // next row.
+        if (a == 5)
+        {
+            currentYPos = currentYPos + INC_START_Y;
+            currentXPos = LOADUP_START_X_POS;
+        }
+        CGPoint preBoardingPosition = ccp(currentXPos, currentYPos);
+        
+        
+        BoardingLocation *b = [[BoardingLocation alloc]init];
+        NSString *locationName = [NSString stringWithFormat:@"LOCATION%d",a];
+        b.boardingLocation = locationName;
+        b.location = preBoardingPosition;
+        [_preBoardingLocations addObject: b];
+        
+        CCLOG(@"---> Setting preboardLocation: %@ : x:%f y:%f : arraySize :%d", locationName, preBoardingPosition.x, preBoardingPosition.y, [_preBoardingLocations count]);
+        
+        currentXPos = currentXPos + INC_START_X;
+    }
+    CCLOG(@"CoasterEngine : PreBoardLocations all added total : %d", [_preBoardingLocations count]);
 }
 
 -(BOOL) isAlive

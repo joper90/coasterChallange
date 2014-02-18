@@ -28,8 +28,8 @@
 #define LENGHT_OF_A_DAY     120 //Time it takes for a day to pass, initally for testing 2 mins.
 #define INITIAL_TIME_FOR_RIDE_COUNT_DOWN    20 // Time in seconds the ride to wait before needing to leave, over = game over
 
-#define LOADUP_START_X_POS  100
-#define LOADUP_START_Y_POS  50
+#define LOADUP_START_X_POS  80
+#define LOADUP_START_Y_POS  220
 #define INC_START_X         100
 #define INC_START_Y         80
 

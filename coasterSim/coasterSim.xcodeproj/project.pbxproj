@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B50F84618B3A96B00CA136E /* BoardingLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F84518B3A96B00CA136E /* BoardingLocation.m */; };
 		5BF80DCD18AFC5D8001607DC /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DCC18AFC5D8001607DC /* GameScene.m */; };
 		5BF80DD318AFC6FB001607DC /* BG_GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DD218AFC6FB001607DC /* BG_GameLayer.m */; };
 		5BF80DD618AFC715001607DC /* FG_GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DD518AFC715001607DC /* FG_GameLayer.m */; };
@@ -154,6 +155,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B50F84418B3A96B00CA136E /* BoardingLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardingLocation.h; sourceTree = "<group>"; };
+		5B50F84518B3A96B00CA136E /* BoardingLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardingLocation.m; sourceTree = "<group>"; };
 		5BF80DCB18AFC5D8001607DC /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		5BF80DCC18AFC5D8001607DC /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		5BF80DD118AFC6FB001607DC /* BG_GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BG_GameLayer.h; sourceTree = "<group>"; };
@@ -565,6 +568,8 @@
 				CEDF28A618AF7D89006CBFA2 /* Resources */,
 				CEDF28BE18AF7D89006CBFA2 /* libs */,
 				CEDF2A3218AF7D8A006CBFA2 /* Supporting Files */,
+				5B50F84418B3A96B00CA136E /* BoardingLocation.h */,
+				5B50F84518B3A96B00CA136E /* BoardingLocation.m */,
 			);
 			path = coasterSim;
 			sourceTree = "<group>";
@@ -1071,6 +1076,7 @@
 				CEDF296718AF7D8A006CBFA2 /* CCShaderCache.m in Sources */,
 				CEDF296D18AF7D8A006CBFA2 /* CCSprite.m in Sources */,
 				CEDF291418AF7D89006CBFA2 /* CCGrabber.m in Sources */,
+				5B50F84618B3A96B00CA136E /* BoardingLocation.m in Sources */,
 				CEDF2A1E18AF7D8A006CBFA2 /* mat3.c in Sources */,
 				CEDF29A818AF7D8A006CBFA2 /* CCES2Renderer.m in Sources */,
 				5BF80DD918AFC728001607DC /* GameLayer.m in Sources */,

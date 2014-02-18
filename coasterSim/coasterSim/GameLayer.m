@@ -28,13 +28,19 @@
             [self addChild:rider];
         }
         
-        //[self addChild:testMob];
+        //Setup the location txt.
+        _locationLocationLocation= [CCLabelTTF labelWithString:[NSString stringWithFormat:@"x:%.f y:%.f",0.0,0.0] fontName:@"ZXSpectrum" fontSize:20];
+        _locationLocationLocation.anchorPoint = ccp(0,0);
+        _locationLocationLocation.position = ccp(750,20);
+        
+        [self addChild:_locationLocationLocation];
 	}
 	return self;
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+ 
     //Change to the main game layer now
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     //Find which mob was touched.
@@ -44,6 +50,10 @@
     
     [[CoasterEngine instance]setRiderInitalTouchedPositionByTag:_currentTag withPosition:touchLocation];
     //I want to deal with this touch.
+    
+    //Update the HUD with the posistion
+    NSString *nowLocation = [NSString stringWithFormat:@"x:%.f y:%.f",touchLocation.x,touchLocation.y];
+    [_locationLocationLocation setString:nowLocation];
     return YES;
 }
 
