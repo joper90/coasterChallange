@@ -100,7 +100,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "coasterSim/CoasterEngine.m"
@@ -111,6 +111,36 @@
             endingLineNumber = "60"
             landmarkName = "-whichRiderIsTouched:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CoasterEngine whichRiderIsTouched:]"
+                  moduleName = "coasterSim"
+                  urlString = "file:///Users/user/coasterChallange/coasterSim/coasterSim/CoasterEngine.m"
+                  timestampString = "414370369.998244"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "762">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CoasterEngine whichRiderIsTouched:]"
+                  moduleName = "coasterSim"
+                  urlString = "file:///Users/user/coasterChallange/coasterSim/coasterSim/CoasterEngine.m"
+                  timestampString = "414370369.99889"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "943">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

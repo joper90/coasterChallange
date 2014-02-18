@@ -14,6 +14,7 @@
 		5BF80DE218AFC975001607DC /* Statics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DE118AFC975001607DC /* Statics.m */; };
 		CE2AC80818AF7F2400D0E8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3418AF7D8A006CBFA2 /* main.m */; };
 		CE68065C18AF85E100317331 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68065B18AF85E100317331 /* TitleScene.m */; };
+		CE8F73C318B2C8DF00946BB4 /* coasterBG.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8F73C218B2C8DF00946BB4 /* coasterBG.png */; };
 		CEA6027818B143C30082D43C /* DayOfTheTentacle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */; };
 		CEA6027918B143C30082D43C /* ZXSpectrum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEA6027718B143C30082D43C /* ZXSpectrum.ttf */; };
 		CEBAB4F218B0C40700836CBE /* 1_yellowHD.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */; };
@@ -165,6 +166,7 @@
 		5BF80DE118AFC975001607DC /* Statics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statics.m; sourceTree = "<group>"; };
 		CE68065A18AF85E100317331 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		CE68065B18AF85E100317331 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
+		CE8F73C218B2C8DF00946BB4 /* coasterBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coasterBG.png; sourceTree = "<group>"; };
 		CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DayOfTheTentacle.ttf; sourceTree = "<group>"; };
 		CEA6027718B143C30082D43C /* ZXSpectrum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZXSpectrum.ttf; sourceTree = "<group>"; };
 		CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_yellowHD.png; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 		CEDF28A618AF7D89006CBFA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE8F73C218B2C8DF00946BB4 /* coasterBG.png */,
 				CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */,
 				CEA6027718B143C30082D43C /* ZXSpectrum.ttf */,
 				CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */,
@@ -1003,6 +1006,7 @@
 				CEDF28B218AF7D89006CBFA2 /* Icon-Small-50.png in Resources */,
 				CEDF28BD18AF7D89006CBFA2 /* iTunesArtwork in Resources */,
 				CEA6027818B143C30082D43C /* DayOfTheTentacle.ttf in Resources */,
+				CE8F73C318B2C8DF00946BB4 /* coasterBG.png in Resources */,
 				CEDF28B618AF7D89006CBFA2 /* Icon-Small@2x.png in Resources */,
 				CEDF28AE18AF7D89006CBFA2 /* Default-Landscape~ipad.png in Resources */,
 				CEBAB4F218B0C40700836CBE /* 1_yellowHD.png in Resources */,
