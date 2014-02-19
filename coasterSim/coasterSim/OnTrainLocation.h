@@ -1,20 +1,21 @@
 //
-//  BoardingLocation.h
+//  OnTrainLocation.h
 //  coasterSim
 //
-//  Created by Joe Humphries on 18/02/2014.
+//  Created by Joe on 19/02/2014.
 //  Copyright (c) 2014 com.funkVoodoo. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface BoardingLocation : NSObject
+@interface OnTrainLocation : NSObject
 {
     
 }
 
-@property NSString  *boardingLocation;
+@property NSString  *trainBoardedLocation;
 @property CGPoint   location;
 @property BOOL      taken;
 @property id        movementSequence;
+
 @end

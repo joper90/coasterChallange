@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Statics.h"
-
+#import "BoardingLocation.h"
 @interface CoasterEngine : NSObject
 {
     
@@ -28,5 +28,10 @@
 -(void) setRiderInitalTouchedPositionByTag:(id) riderTag withPosition:(CGPoint) location;
 -(void) updateRiderPostionByTag:(id) riderTag withOldCoords:(CGPoint) oldTouchLocation withCoords:(CGPoint)touchLocation;
 
+-(BoardingLocation*) getBoardingInfoByArrayLocation:(int)arrayLocation;
+
+
 -(void) privateSetupPreBoardingLocations;
+-(void) privateSetupRiderMap;
+
 @end

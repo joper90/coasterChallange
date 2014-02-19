@@ -12,6 +12,9 @@
 @interface GameLayer : CCLayer
 {
 }
+
+-(void) moveToBoarding;
+
 @property id currentTag;
 @property CCLabelTTF *locationLocationLocation;
 @property CGPoint *lastTouch;

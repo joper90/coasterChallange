@@ -14,6 +14,8 @@
 		5BF80DD918AFC728001607DC /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DD818AFC728001607DC /* GameLayer.m */; };
 		5BF80DE218AFC975001607DC /* Statics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF80DE118AFC975001607DC /* Statics.m */; };
 		CE2AC80818AF7F2400D0E8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3418AF7D8A006CBFA2 /* main.m */; };
+		CE5C5F4718B4C7E400CB6D6D /* MovementRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C5F4618B4C7E400CB6D6D /* MovementRequester.m */; };
+		CE5C5F4C18B4DD8000CB6D6D /* OnTrainLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */; };
 		CE68065C18AF85E100317331 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68065B18AF85E100317331 /* TitleScene.m */; };
 		CE8F73C318B2C8DF00946BB4 /* coasterBG.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8F73C218B2C8DF00946BB4 /* coasterBG.png */; };
 		CEA6027818B143C30082D43C /* DayOfTheTentacle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */; };
@@ -167,6 +169,10 @@
 		5BF80DD818AFC728001607DC /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		5BF80DE018AFC975001607DC /* Statics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statics.h; sourceTree = "<group>"; };
 		5BF80DE118AFC975001607DC /* Statics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statics.m; sourceTree = "<group>"; };
+		CE5C5F4518B4C7E400CB6D6D /* MovementRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovementRequester.h; sourceTree = "<group>"; };
+		CE5C5F4618B4C7E400CB6D6D /* MovementRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovementRequester.m; sourceTree = "<group>"; };
+		CE5C5F4A18B4DD8000CB6D6D /* OnTrainLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnTrainLocation.h; sourceTree = "<group>"; };
+		CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnTrainLocation.m; sourceTree = "<group>"; };
 		CE68065A18AF85E100317331 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		CE68065B18AF85E100317331 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
 		CE8F73C218B2C8DF00946BB4 /* coasterBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coasterBG.png; sourceTree = "<group>"; };
@@ -511,6 +517,30 @@
 			name = Layers;
 			sourceTree = "<group>";
 		};
+		CE5C5F4818B4C7F700CB6D6D /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6A95318B0DD7C00BAC61B /* CoasterEngine.h */,
+				CEF6A95418B0DD7C00BAC61B /* CoasterEngine.m */,
+				CEDF2A3618AF7D8A006CBFA2 /* AppDelegate.h */,
+				CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */,
+			);
+			name = engine;
+			sourceTree = "<group>";
+		};
+		CE5C5F4918B4C80D00CB6D6D /* elements */ = {
+			isa = PBXGroup;
+			children = (
+				5B50F84418B3A96B00CA136E /* BoardingLocation.h */,
+				5B50F84518B3A96B00CA136E /* BoardingLocation.m */,
+				CE5C5F4518B4C7E400CB6D6D /* MovementRequester.h */,
+				CE5C5F4618B4C7E400CB6D6D /* MovementRequester.m */,
+				CE5C5F4A18B4DD8000CB6D6D /* OnTrainLocation.h */,
+				CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */,
+			);
+			name = elements;
+			sourceTree = "<group>";
+		};
 		CE68065D18AF85EA00317331 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,17 +589,13 @@
 		CEDF28A518AF7D89006CBFA2 /* coasterSim */ = {
 			isa = PBXGroup;
 			children = (
-				CEF6A95318B0DD7C00BAC61B /* CoasterEngine.h */,
-				CEF6A95418B0DD7C00BAC61B /* CoasterEngine.m */,
+				CE5C5F4818B4C7F700CB6D6D /* engine */,
 				CE68065D18AF85EA00317331 /* scenes */,
-				CEDF2A3618AF7D8A006CBFA2 /* AppDelegate.h */,
-				CEDF2A3718AF7D8A006CBFA2 /* AppDelegate.m */,
 				CE2AC80918AF841500D0E8E1 /* Layers */,
 				CEDF28A618AF7D89006CBFA2 /* Resources */,
 				CEDF28BE18AF7D89006CBFA2 /* libs */,
 				CEDF2A3218AF7D8A006CBFA2 /* Supporting Files */,
-				5B50F84418B3A96B00CA136E /* BoardingLocation.h */,
-				5B50F84518B3A96B00CA136E /* BoardingLocation.m */,
+				CE5C5F4918B4C80D00CB6D6D /* elements */,
 			);
 			path = coasterSim;
 			sourceTree = "<group>";
@@ -1036,6 +1062,7 @@
 				CEDF298518AF7D8A006CBFA2 /* CCTileMapAtlas.m in Sources */,
 				CEDF298818AF7D8A006CBFA2 /* CCTMXLayer.m in Sources */,
 				CEDF2A2018AF7D8A006CBFA2 /* mat4.c in Sources */,
+				CE5C5F4718B4C7E400CB6D6D /* MovementRequester.m in Sources */,
 				CEDF28FC18AF7D89006CBFA2 /* ccDeprecated.m in Sources */,
 				CEDF29B718AF7D8A006CBFA2 /* CCDirectorMac.m in Sources */,
 				CEDF291118AF7D89006CBFA2 /* ccGLStateCache.m in Sources */,
@@ -1129,6 +1156,7 @@
 				CEDF296A18AF7D8A006CBFA2 /* ccShaders.m in Sources */,
 				CEDF29C018AF7D8A006CBFA2 /* CCWindow.m in Sources */,
 				CEDF299E18AF7D8A006CBFA2 /* cocos2d.m in Sources */,
+				CE5C5F4C18B4DD8000CB6D6D /* OnTrainLocation.m in Sources */,
 				CEDF294B18AF7D8A006CBFA2 /* CCProgressTimer.m in Sources */,
 				CEDF292018AF7D89006CBFA2 /* CCLabelTTF.m in Sources */,
 				CEDF29CD18AF7D8A006CBFA2 /* CCFileUtils.m in Sources */,

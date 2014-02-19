@@ -8,6 +8,7 @@
 
 #import "CoasterEngine.h"
 #import "BoardingLocation.h"
+#import "MovementRequester.h"
 
 @implementation CoasterEngine
 
@@ -36,7 +37,7 @@ static CoasterEngine* coasterEngine = nil;
         _preBoardingLocations = [[NSMutableArray alloc]init];
        
         [self privateSetupPreBoardingLocations];
-        
+        [self privateSetupRiderMap];
     }
     return self;
 }
@@ -64,13 +65,42 @@ static CoasterEngine* coasterEngine = nil;
         NSString *locationName = [NSString stringWithFormat:@"LOCATION%d",a];
         b.boardingLocation = locationName;
         b.location = preBoardingPosition;
+        b.movementSequence = [MovementRequester moveToBoardingLocationByPoint:preBoardingPosition];
         [_preBoardingLocations addObject: b];
         
         CCLOG(@"---> Setting preboardLocation: %@ : x:%f y:%f : arraySize :%d", locationName, preBoardingPosition.x, preBoardingPosition.y, [_preBoardingLocations count]);
-        
         currentXPos = currentXPos + INC_START_X;
     }
     CCLOG(@"CoasterEngine : PreBoardLocations all added total : %d", [_preBoardingLocations count]);
+}
+
+-(void)privateSetupRiderMap
+{
+    //Load up the Ten object
+    for (int a =0; a < 10;a++)
+    {
+        NSString *riderTag = [NSString stringWithFormat:@"RIDER_TAG_%d",a];
+        CCLOG(@"Loading in sprite : %@",riderTag);
+        
+        CCSprite *rider = [CCSprite spriteWithFile:@"1_yellowHD.png"];
+        rider.tag = riderTag;
+        
+        CGPoint riderPosition = ccp(RIDERS_START_X_POS, RIDERS_START_Y_POS);
+        CCLOG(@"---> Setting inital sprite pos x:%f y:%f", riderPosition.x, riderPosition.y);
+        
+        rider.position = riderPosition;
+        
+        //Now add to the map
+        [_ridersMap setObject:rider forKey:riderTag];
+    }
+}
+
+-(BoardingLocation*)getBoardingInfoByArrayLocation:(int)arrayLocation
+{
+    BoardingLocation* b = [_preBoardingLocations objectAtIndex:arrayLocation];
+    CCLOG(@"Return boardinglocation : %@", b.boardingLocation);
+    
+    return b;
 }
 
 -(BOOL) isAlive

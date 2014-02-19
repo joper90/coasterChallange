@@ -34,11 +34,27 @@
         _locationLocationLocation.position = ccp(750,20);
         
         [self addChild:_locationLocationLocation];
+        
+        //Move the riders to the boaring position.
+        [self moveToBoarding];
+        
 	}
 	return self;
 }
 
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+-(void)moveToBoarding
+{
+    //Simple first 1 - 1 mapping not random.
+    int count = 0;
+    for (id key in [CoasterEngine instance].ridersMap)
+    {
+        CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
+        BoardingLocation *b = [[CoasterEngine instance]getBoardingInfoByArrayLocation:count++];
+        [rider runAction:b.movementSequence];
+    }
+}
+
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
  
     //Change to the main game layer now
@@ -57,7 +73,7 @@
     return YES;
 }
 
-- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     
     //Get all the relevent info from this layer

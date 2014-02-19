@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @implementation BoardingLocation
-@synthesize boardingLocation, taken, location;
+@synthesize boardingLocation, taken, location, movementSequence;
 
 -(id) init
 {
