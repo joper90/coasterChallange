@@ -11,7 +11,7 @@
 
 @implementation OnTrainLocation
 
-@synthesize trainBoardedLocation, taken, location, movementSequence;
+@synthesize trainSeatLocation, taken, location, movementSequence;
 
 -(id) init
 {

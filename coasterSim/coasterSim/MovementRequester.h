@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "Train.h"
 
 @interface MovementRequester : CCNode {
     
 }
 
-+(id) moveToBoardingLocationByPoint:(CGPoint) location;
-
-
++(id) moveDirectToLocationByPoint:(CGPoint) location;
++(id) trainEnterMovement:(TrainRequest) trainTypeRequest;
++(id) trainExitMovement:(TrainRequest)trainRequestType andMyself:(id) myself;
                                         
 
 @end

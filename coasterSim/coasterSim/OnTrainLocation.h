@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface OnTrainLocation : NSObject
 {
     
 }
 
-@property NSString  *trainBoardedLocation;
+@property NSString  *trainSeatLocation;
 @property CGPoint   location;
 @property BOOL      taken;
 @property id        movementSequence;

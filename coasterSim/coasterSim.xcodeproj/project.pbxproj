@@ -16,6 +16,9 @@
 		CE2AC80818AF7F2400D0E8E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF2A3418AF7D8A006CBFA2 /* main.m */; };
 		CE5C5F4718B4C7E400CB6D6D /* MovementRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C5F4618B4C7E400CB6D6D /* MovementRequester.m */; };
 		CE5C5F4C18B4DD8000CB6D6D /* OnTrainLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */; };
+		CE5C5F4E18B50B9800CB6D6D /* 1_greenHD.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5C5F4D18B50B9800CB6D6D /* 1_greenHD.png */; };
+		CE5C5F5018B52FAE00CB6D6D /* train.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5C5F4F18B52FAE00CB6D6D /* train.png */; };
+		CE5C5F5318B5308E00CB6D6D /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C5F5218B5308E00CB6D6D /* Train.m */; };
 		CE68065C18AF85E100317331 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68065B18AF85E100317331 /* TitleScene.m */; };
 		CE8F73C318B2C8DF00946BB4 /* coasterBG.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8F73C218B2C8DF00946BB4 /* coasterBG.png */; };
 		CEA6027818B143C30082D43C /* DayOfTheTentacle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */; };
@@ -173,6 +176,10 @@
 		CE5C5F4618B4C7E400CB6D6D /* MovementRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovementRequester.m; sourceTree = "<group>"; };
 		CE5C5F4A18B4DD8000CB6D6D /* OnTrainLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnTrainLocation.h; sourceTree = "<group>"; };
 		CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnTrainLocation.m; sourceTree = "<group>"; };
+		CE5C5F4D18B50B9800CB6D6D /* 1_greenHD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_greenHD.png; sourceTree = "<group>"; };
+		CE5C5F4F18B52FAE00CB6D6D /* train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = train.png; sourceTree = "<group>"; };
+		CE5C5F5118B5308E00CB6D6D /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
+		CE5C5F5218B5308E00CB6D6D /* Train.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Train.m; sourceTree = "<group>"; };
 		CE68065A18AF85E100317331 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		CE68065B18AF85E100317331 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
 		CE8F73C218B2C8DF00946BB4 /* coasterBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coasterBG.png; sourceTree = "<group>"; };
@@ -537,6 +544,8 @@
 				CE5C5F4618B4C7E400CB6D6D /* MovementRequester.m */,
 				CE5C5F4A18B4DD8000CB6D6D /* OnTrainLocation.h */,
 				CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */,
+				CE5C5F5118B5308E00CB6D6D /* Train.h */,
+				CE5C5F5218B5308E00CB6D6D /* Train.m */,
 			);
 			name = elements;
 			sourceTree = "<group>";
@@ -603,6 +612,8 @@
 		CEDF28A618AF7D89006CBFA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE5C5F4F18B52FAE00CB6D6D /* train.png */,
+				CE5C5F4D18B50B9800CB6D6D /* 1_greenHD.png */,
 				CE8F73C218B2C8DF00946BB4 /* coasterBG.png */,
 				CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */,
 				CEA6027718B143C30082D43C /* ZXSpectrum.ttf */,
@@ -1035,10 +1046,12 @@
 				CEDF28B018AF7D89006CBFA2 /* Icon-72.png in Resources */,
 				CEDF28A818AF7D89006CBFA2 /* Default.png in Resources */,
 				CEDF28B218AF7D89006CBFA2 /* Icon-Small-50.png in Resources */,
+				CE5C5F5018B52FAE00CB6D6D /* train.png in Resources */,
 				CEDF28BD18AF7D89006CBFA2 /* iTunesArtwork in Resources */,
 				CEA6027818B143C30082D43C /* DayOfTheTentacle.ttf in Resources */,
 				CE8F73C318B2C8DF00946BB4 /* coasterBG.png in Resources */,
 				CEDF28B618AF7D89006CBFA2 /* Icon-Small@2x.png in Resources */,
+				CE5C5F4E18B50B9800CB6D6D /* 1_greenHD.png in Resources */,
 				CEDF28AE18AF7D89006CBFA2 /* Default-Landscape~ipad.png in Resources */,
 				CEBAB4F218B0C40700836CBE /* 1_yellowHD.png in Resources */,
 				CEDF28AC18AF7D89006CBFA2 /* Default-568h@2x.png in Resources */,
@@ -1133,6 +1146,7 @@
 				CEDF28DD18AF7D89006CBFA2 /* CCActionPageTurn3D.m in Sources */,
 				CEDF2A2E18AF7D8A006CBFA2 /* vec3.c in Sources */,
 				CEDF29E018AF7D8A006CBFA2 /* TGAlib.m in Sources */,
+				CE5C5F5318B5308E00CB6D6D /* Train.m in Sources */,
 				CEDF28E918AF7D89006CBFA2 /* CCAnimation.m in Sources */,
 				CEDF2A1418AF7D8A006CBFA2 /* aabb.c in Sources */,
 				CEDF298B18AF7D8A006CBFA2 /* CCTMXObjectGroup.m in Sources */,

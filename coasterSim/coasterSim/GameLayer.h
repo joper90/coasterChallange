@@ -11,9 +11,16 @@
 
 @interface GameLayer : CCLayer
 {
+    CCSprite * goButton;
 }
 
 -(void) moveToBoarding;
+-(void) loadAndShowGoButton;
+-(BOOL) handleGoButton:(CGPoint) touchLocation;
+
+-(void)moveAllTrainsOn;
+-(void)moveAllTrainsOff;
+
 
 @property id currentTag;
 @property CCLabelTTF *locationLocationLocation;
