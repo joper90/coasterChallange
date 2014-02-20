@@ -119,6 +119,11 @@ static CoasterEngine* coasterEngine = nil;
     trainThree.trainSprite.position =   ccp(TRAIN_X_START_OFF_SCREEN_OFFSET + TRAIN_THREE_STOP_X_POS, TRAIN_Y_POS);
     trainFour.trainSprite.position =    ccp(TRAIN_X_START_OFF_SCREEN_OFFSET + TRAIN_FOUR_STOP_X_POS, TRAIN_Y_POS);
     
+    trainOne.initalStartLocation =     ccp(TRAIN_X_START_OFF_SCREEN_OFFSET, TRAIN_Y_POS);
+    trainTwo.initalStartLocation =     ccp(TRAIN_X_START_OFF_SCREEN_OFFSET + TRAIN_TWO_STOP_X_POS, TRAIN_Y_POS);
+    trainThree.initalStartLocation =   ccp(TRAIN_X_START_OFF_SCREEN_OFFSET + TRAIN_THREE_STOP_X_POS, TRAIN_Y_POS);
+    trainFour.initalStartLocation =    ccp(TRAIN_X_START_OFF_SCREEN_OFFSET + TRAIN_FOUR_STOP_X_POS, TRAIN_Y_POS);
+    
     [_trains addObject:trainOne];
     [_trains addObject:trainTwo];
     [_trains addObject:trainThree];
@@ -129,6 +134,30 @@ static CoasterEngine* coasterEngine = nil;
     CCLOG(@"---> Train Exit Complete (callback) from : %@",sender);
     //Now reset the train.
     
+    NSString *trainInfo = [NSString stringWithFormat:@"%@",sender];
+    
+    if ([trainInfo isEqualToString:@"TRAIN1"])
+    {
+        Train *t = [self getTrainByArrayLocation:0];
+        [t resetInitialPosistion];
+        CCLOG(@"--------> reset train one");
+    }else if([trainInfo isEqualToString:@"TRAIN2"])
+    {
+        Train *t = [self getTrainByArrayLocation:1];
+        [t resetInitialPosistion];
+        CCLOG(@"--------> reset train two");
+    }else if([trainInfo isEqualToString:@"TRAIN3"])
+    {
+        Train *t = [self getTrainByArrayLocation:2];
+        [t resetInitialPosistion];
+        CCLOG(@"--------> reset train three");
+    }else if ([trainInfo isEqualToString:@"TRAIN4"])
+    {
+        Train *t = [self getTrainByArrayLocation:3];
+        [t resetInitialPosistion];
+        CCLOG(@"--------> reset train four");
+    }
+    //else useless data..
     
 }
 

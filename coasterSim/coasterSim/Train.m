@@ -10,4 +10,9 @@
 
 @implementation Train
 @synthesize trainName, moveIntoScreen, moveOffScreen, initalStartLocation;
+
+-(void)resetInitialPosistion
+{
+    _trainSprite.position = initalStartLocation;
+}
 @end

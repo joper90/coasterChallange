@@ -27,4 +27,6 @@ typedef enum{
 @property CCSequence *moveOffScreen;
 @property CGPoint initalStartLocation;
 
+-(void)resetInitialPosistion;
+
 @end

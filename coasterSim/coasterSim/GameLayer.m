@@ -128,6 +128,10 @@
     if (CGRectContainsPoint(goButton.boundingBox, touchLocation))
     {
         CCLOG(@"--> GoButton touched");
+        //diable touch
+        [[[CCDirector sharedDirector]touchDispatcher]removeAllDelegates];
+        
+        
         //Move the trains off now (THIS IS ATESTING)
         for (Train *t in [CoasterEngine instance].trains)
         {
