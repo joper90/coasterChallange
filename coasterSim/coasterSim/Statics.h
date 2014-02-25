@@ -46,6 +46,11 @@
 #define RIDERS_START_Y_POS          -100
 #define RIDERS_Z_POS                100
 
+//Locations of where the rider move to when exiting the screen.
+#define RIDER_EXIT_OFFSCREEN_XPOS_START 1400
+#define RIDER_EXIT_OFFSCREEN_INC_X_POS  140
+#define RIDER_EXIT_OFFSCREEN_INC_Y_POS  80
+
 //Go button location
 #define GO_BUTTON_START_X_POS          950
 #define GO_BUTTON_START_Y_POS          270

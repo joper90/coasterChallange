@@ -20,33 +20,47 @@
     return moveTo;
 }
 
-+(id)trainEnterMovement:(TrainRequest)trainTypeRequest
++(id) moveRiderOntoTrain:(CGPoint)location andMyself:(id)myself withRiderNumber:(int) riderId
+{
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:1 position:location];
+    CCCallFuncO *callback = [CCCallFuncO actionWithTarget:myself selector:@selector(riderBoardedComplete:) object:[NSString stringWithFormat:@"RIDER_TAG_%d",riderId]];
+    CCSequence *seq = [CCSequence actions:moveTo, callback, nil];
+    return seq;
+}
+
++(id)trainEnterMovement:(TrainRequest)trainTypeRequest andMyself:(id)myself
 {
     CCMoveTo *moveTo;
-  //  CCDelayTime *delay;
-  //  CCSequence *finishedSequence;
+    CCCallFuncO *trainFinished = nil;
+    CCSequence *seq = nil;
+    
     switch (trainTypeRequest) {
         case TRAIN1:
             moveTo = [CCMoveTo actionWithDuration:TRAIN_ENTER_TIME position:ccp(TRAIN_ONE_STOP_X_POS, TRAIN_Y_POS)];
-            return moveTo;
+            trainFinished = [CCCallFuncO actionWithTarget:myself selector:@selector(trainEnterComplete:) object:@"TRAIN1"];
+            seq = [CCSequence actions:moveTo, trainFinished, nil];
+            return seq;
             
         case TRAIN2:
             //delay = [CCDelayTime actionWithDuration:0.1f];
             moveTo = [CCMoveTo actionWithDuration:TRAIN_ENTER_TIME position:ccp(TRAIN_TWO_STOP_X_POS, TRAIN_Y_POS)];
-            //finishedSequence = [CCSequence actions: delay, moveTo, nil];
-            return moveTo;
+            trainFinished = [CCCallFuncO actionWithTarget:myself selector:@selector(trainEnterComplete:) object:@"TRAIN2"];
+            seq = [CCSequence actions:moveTo, trainFinished, nil];
+            return seq;
         
         case TRAIN3:
            // delay = [CCDelayTime actionWithDuration:0.2f];
             moveTo = [CCMoveTo actionWithDuration:TRAIN_ENTER_TIME position:ccp(TRAIN_THREE_STOP_X_POS, TRAIN_Y_POS)];
-           // finishedSequence = [CCSequence actions: delay, moveTo, nil];
-            return moveTo;
+            trainFinished = [CCCallFuncO actionWithTarget:myself selector:@selector(trainEnterComplete:) object:@"TRAIN3"];
+            seq = [CCSequence actions:moveTo, trainFinished, nil];
+            return seq;
             
         case TRAIN4:
            // delay = [CCDelayTime actionWithDuration:0.3f];
             moveTo = [CCMoveTo actionWithDuration:TRAIN_ENTER_TIME position:ccp(TRAIN_FOUR_STOP_X_POS, TRAIN_Y_POS)];
-          //  finishedSequence = [CCSequence actions: delay, moveTo, nil];
-            return moveTo;
+            trainFinished = [CCCallFuncO actionWithTarget:myself selector:@selector(trainEnterComplete:) object:@"TRAIN4"];
+            seq = [CCSequence actions:moveTo, trainFinished, nil];
+            return seq;
             
     }
     

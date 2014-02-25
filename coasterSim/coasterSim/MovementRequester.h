@@ -15,7 +15,8 @@
 }
 
 +(id) moveDirectToLocationByPoint:(CGPoint) location;
-+(id) trainEnterMovement:(TrainRequest) trainTypeRequest;
++(id) moveRiderOntoTrain:(CGPoint)location andMyself:(id)myself withRiderNumber:(int) riderId;
++(id) trainEnterMovement:(TrainRequest) trainTypeRequest andMyself:(id)myself;
 +(id) trainExitMovement:(TrainRequest)trainRequestType andMyself:(id) myself;
                                         
 

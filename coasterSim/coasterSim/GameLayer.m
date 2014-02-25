@@ -22,12 +22,14 @@
        
         //Now display each element on the screen
         //Show GoButton
+        [[CoasterEngine instance]setTrainState:WAITING_FOR_STATION];
+        
         [self loadAndShowGoButton];
         
         //Show the riders (initally off the screen)
         for (id key in [CoasterEngine instance].ridersMap)
         {
-            CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
+            CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
             CCLOG(@"----> Adding rider :%@", key);
             [self addChild:rider];
         }
@@ -50,10 +52,32 @@
         
         //Move the riders to the boaring position.
         [self moveToBoarding];
-        [self moveAllTrainsOn];
         
 	}
 	return self;
+}
+
+-(void)moveRidersOntoTrain
+{
+    int count = 0;
+    for (id key in [CoasterEngine instance].ridersMap)
+    {
+        CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
+        OnTrainLocation *oTrain = [[CoasterEngine instance]getOnTrainLocationByArrayLocation:count++];
+        [rider runAction:oTrain.movementSequence];
+    }
+    
+}
+
+-(void)moveToBoarding
+{
+    int count = 0 ;
+    for (id key in [CoasterEngine instance].ridersMap)
+    {
+        CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
+        BoardingLocation *b = [[CoasterEngine instance]getBoardingInfoByArrayLocation:count++];
+        [rider runAction:b.movementSequence];
+    }
 }
 
 -(void)loadAndShowGoButton
@@ -81,21 +105,13 @@
     }
 }
 
--(void)moveToBoarding
-{
-    CCLOG(@"GameLayer : moveToBoarding");
-    //Simple first 1 - 1 mapping not random.
-    int count = 0;
-    for (id key in [CoasterEngine instance].ridersMap)
-    {
-        CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
-        BoardingLocation *b = [[CoasterEngine instance]getBoardingInfoByArrayLocation:count++];
-        [rider runAction:b.movementSequence];
-    }
-}
-
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    if ([CoasterEngine instance].isTrainMoving == YES)
+    {
+        return YES;
+    }
+    
     //Change to the main game layer now
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     
@@ -128,17 +144,33 @@
     if (CGRectContainsPoint(goButton.boundingBox, touchLocation))
     {
         CCLOG(@"--> GoButton touched");
-        //diable touch
-        [[[CCDirector sharedDirector]touchDispatcher]removeAllDelegates];
         
-        
-        //Move the trains off now (THIS IS ATESTING)
-        for (Train *t in [CoasterEngine instance].trains)
-        {
-            [t.trainSprite runAction:t.moveOffScreen];
+        switch ([[CoasterEngine instance]trainState]) {
+            case BOARDED:
+                [CoasterEngine instance].isTrainMoving =YES;
+                //Move the trains off now (THIS IS ATESTING)
+                [self moveAllTrainsOff];
+                //Now set the state thatn the train is in the station.
+                [[CoasterEngine instance]setTrainState:WAITING_FOR_STATION];
+                break;
+            
+            case WAITING_FOR_STATION:
+                [CoasterEngine instance].isTrainMoving =YES;
+                //Now set the state thatn the train is in the station.
+                [self moveAllTrainsOn];
+                [[CoasterEngine instance]setTrainState:STOPPED_IN_STATION];
+                break;
+                
+            case STOPPED_IN_STATION:
+                [CoasterEngine instance].isTrainMoving = YES;
+                [self moveRidersOntoTrain];
+                [[CoasterEngine instance]setTrainState:BOARDED];
+                break;
+                
+            default:
+                break;
         }
-        
-        
+
         return YES;
     }
     return NO;
@@ -146,6 +178,7 @@
 
 -(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    
     if (_currentTag != nil)
     {
         //Get all the relevent info from this layer
@@ -168,6 +201,7 @@
     {
         CCLOG(@"GameLayer : TouchesEnded called for %@",_currentTag);
     }
+    _currentTag = nil;
 }
 
 @end

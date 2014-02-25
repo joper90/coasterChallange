@@ -9,9 +9,11 @@
 #import "CoasterEngine.h"
 #import "BoardingLocation.h"
 #import "MovementRequester.h"
-#import "Train.h"
+
 
 @implementation CoasterEngine
+
+@synthesize trainState,isTrainMoving;
 
 static CoasterEngine* coasterEngine = nil;
 
@@ -23,6 +25,7 @@ static CoasterEngine* coasterEngine = nil;
         //Alive for the duration of the game
         coasterEngine = [[CoasterEngine alloc]init];
         CCLOG(@"CoasterEngine : instance complete....");
+        
     }
     return coasterEngine;
 }
@@ -37,7 +40,9 @@ static CoasterEngine* coasterEngine = nil;
         _ridersMap = [[NSMutableDictionary alloc]init];
         _preBoardingLocations = [[NSMutableArray alloc]init];
         _trains = [[NSMutableArray alloc]init];
-       
+        _trainSittingLocations = [[NSMutableArray alloc]init];
+        trainState = WAITING_FOR_STATION;
+        isTrainMoving = NO;
         [self privateSetupPreBoardingLocations];
         [self privateSetupSittingLocations];
         [self privateSetupRiderMap];
@@ -50,8 +55,8 @@ static CoasterEngine* coasterEngine = nil;
 {
     CCLOG(@"CoasterEngine : privateSetupSittingLocations");
     //Setup the sitting down location array.
-    int currentXPos = SIT_INC_START_X;
-    int currentYPos = SIT_INC_START_Y;
+    int currentXPos = SIT_START_X_POS;
+    int currentYPos = SIT_START_Y_POS;
     
     //Load up the sitting boarding locations
     for (int a =0; a < 10;a++)
@@ -70,7 +75,7 @@ static CoasterEngine* coasterEngine = nil;
         NSString *locationName = [NSString stringWithFormat:@"LOCATION%d",a];
         b.trainSeatLocation = locationName;
         b.location = trainSittingPosition;
-        b.movementSequence = [MovementRequester moveDirectToLocationByPoint:trainSittingPosition];
+        b.movementSequence = [MovementRequester moveRiderOntoTrain:trainSittingPosition andMyself:self withRiderNumber:a];
         [_trainSittingLocations addObject: b];
         
         CCLOG(@"---> Setting trainSittingLocation: %@ : x:%f y:%f : arraySize :%d", locationName, trainSittingPosition.x, trainSittingPosition.y, [_trainSittingLocations count]);
@@ -99,10 +104,10 @@ static CoasterEngine* coasterEngine = nil;
     trainThree.moveOffScreen = [MovementRequester trainExitMovement:TRAIN3 andMyself:self];
     trainFour.moveOffScreen = [MovementRequester trainExitMovement:TRAIN4 andMyself:self];
     
-    trainOne.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN1];
-    trainTwo.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN2];
-    trainThree.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN3];
-    trainFour.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN4];
+    trainOne.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN1 andMyself:self];
+    trainTwo.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN2 andMyself:self];
+    trainThree.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN3 andMyself:self];
+    trainFour.moveIntoScreen = [MovementRequester trainEnterMovement:TRAIN4 andMyself:self];
     
     trainOne.trainSprite = [CCSprite spriteWithFile:@"train.png"];
     trainTwo.trainSprite = [CCSprite spriteWithFile:@"train.png"];
@@ -130,7 +135,22 @@ static CoasterEngine* coasterEngine = nil;
     [_trains addObject:trainFour];
 }
 
--(void)trainExitComplete:(id)sender{
+-(void)riderBoardedComplete:(id)sender
+{
+    CCLOG(@"---> Riders Boarded Complete (callback) from : %@",sender);
+    //Now we need to attach the to main sprite.
+    Rider *rider = [self getRiderSpriteByKey:sender];
+    Train *train = [_trains objectAtIndex:1];
+    
+    //Remove from main screen.
+    [rider.riderSprite removeFromParent];
+    [rider resetRiderLocation];
+    [train.trainSprite addChild:rider.riderSprite];
+    isTrainMoving = NO;
+}
+
+-(void)trainExitComplete:(id)sender
+{
     CCLOG(@"---> Train Exit Complete (callback) from : %@",sender);
     //Now reset the train.
     
@@ -156,10 +176,30 @@ static CoasterEngine* coasterEngine = nil;
         Train *t = [self getTrainByArrayLocation:3];
         [t resetInitialPosistion];
         CCLOG(@"--------> reset train four");
+        
+        //Release the lock if train 4 (i.e the last train)
+        isTrainMoving = NO;
     }
     //else useless data..
     
+    
 }
+
+-(void)trainEnterComplete:(id)sender
+{
+    CCLOG(@"---> Train Enter Complete (callback) from : %@",sender);
+    
+    NSString *trainInfo = [NSString stringWithFormat:@"%@",sender];
+    if ([trainInfo isEqualToString:@"TRAIN4"])
+    {
+        CCLOG(@"--------> Train entered train four - remove lock");
+        
+        //Release the lock if train 4 (i.e the last train)
+        isTrainMoving = NO;
+    }
+
+}
+
 
 -(void) privateSetupPreBoardingLocations
 {
@@ -204,17 +244,21 @@ static CoasterEngine* coasterEngine = nil;
         NSString *riderTag = [NSString stringWithFormat:@"RIDER_TAG_%d",a];
         CCLOG(@"Loading in sprite : %@",riderTag);
         
-        CCSprite *rider = [CCSprite spriteWithFile:@"1_yellowHD.png"];
-        rider.tag = riderTag;
+        CCSprite *riderSprite = [CCSprite spriteWithFile:@"1_yellowHD.png"];
+        riderSprite.tag = riderTag;
         
         CGPoint riderPosition = ccp(RIDERS_START_X_POS, RIDERS_START_Y_POS);
         CCLOG(@"---> Setting inital sprite pos x:%.f y:%.f", riderPosition.x, riderPosition.y);
         
-        rider.position = riderPosition;
-        rider.zOrder = RIDERS_Z_POS;
+        riderSprite.position = riderPosition;
+        riderSprite.zOrder = RIDERS_Z_POS;
+        
+        
+        //Now create the actualRider
+        Rider *riderToAdd = [[Rider alloc]initWithTag:riderTag andWithSprite:riderSprite andInitalocation:riderPosition];
         
         //Now add to the map
-        [_ridersMap setObject:rider forKey:riderTag];
+        [_ridersMap setObject:riderToAdd forKey:riderTag];
     }
 }
 
@@ -246,7 +290,7 @@ static CoasterEngine* coasterEngine = nil;
     return YES;
 }
 
--(CCSprite *)getSpriteForKey:(id)key
+-(Rider *)getRiderSpriteByKey:(id)key
 {
     CCLOG(@"CoasterEngine : getSpriteForKey : %@", key);
     return [_ridersMap objectForKey:key];
@@ -256,7 +300,7 @@ static CoasterEngine* coasterEngine = nil;
 {
     for (id key in [CoasterEngine instance].ridersMap)
     {
-        CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:key];
+        CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
         if (CGRectContainsPoint(rider.boundingBox, touchLocation))
         {
             return key;
@@ -267,13 +311,15 @@ static CoasterEngine* coasterEngine = nil;
 
 -(void)setRiderInitalTouchedPositionByTag:(id)riderTag withPosition:(CGPoint)location
 {
-    [[_ridersMap objectForKey:riderTag]setPosition:location];
+    Rider *rider = [_ridersMap objectForKey:riderTag];
+    [rider riderSprite].position = location;
+    //[[_ridersMap objectForKey:riderTag]setPosition:location];
 }
     
 -(void)updateRiderPostionByTag:(id)riderTag withOldCoords:(CGPoint)oldTouchLocation withCoords:(CGPoint)touchLocation
 {
     
-    CCSprite *rider = [[CoasterEngine instance]getSpriteForKey:riderTag];
+    CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:riderTag].riderSprite;
     
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
     CGPoint newPos = ccpAdd(rider.position, translation);

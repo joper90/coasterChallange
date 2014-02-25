@@ -13,13 +13,13 @@
 {
     CCSprite * goButton;
 }
-
--(void) moveToBoarding;
+-(void)moveToBoarding;
 -(void) loadAndShowGoButton;
 -(BOOL) handleGoButton:(CGPoint) touchLocation;
 
 -(void)moveAllTrainsOn;
 -(void)moveAllTrainsOff;
+-(void)moveRidersOntoTrain;
 
 
 @property id currentTag;

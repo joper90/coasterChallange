@@ -24,6 +24,7 @@
 		CEA6027818B143C30082D43C /* DayOfTheTentacle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */; };
 		CEA6027918B143C30082D43C /* ZXSpectrum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEA6027718B143C30082D43C /* ZXSpectrum.ttf */; };
 		CEBAB4F218B0C40700836CBE /* 1_yellowHD.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */; };
+		CEBB140618BD13A500CB1421 /* Rider.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB140518BD13A500CB1421 /* Rider.m */; };
 		CEDF289218AF7D89006CBFA2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289118AF7D89006CBFA2 /* QuartzCore.framework */; };
 		CEDF289418AF7D89006CBFA2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289318AF7D89006CBFA2 /* OpenGLES.framework */; };
 		CEDF289618AF7D89006CBFA2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF289518AF7D89006CBFA2 /* OpenAL.framework */; };
@@ -186,6 +187,8 @@
 		CEA6027618B143C30082D43C /* DayOfTheTentacle.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DayOfTheTentacle.ttf; sourceTree = "<group>"; };
 		CEA6027718B143C30082D43C /* ZXSpectrum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZXSpectrum.ttf; sourceTree = "<group>"; };
 		CEBAB4F118B0C40700836CBE /* 1_yellowHD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_yellowHD.png; sourceTree = "<group>"; };
+		CEBB140418BD13A500CB1421 /* Rider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rider.h; sourceTree = "<group>"; };
+		CEBB140518BD13A500CB1421 /* Rider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rider.m; sourceTree = "<group>"; };
 		CEDF288E18AF7D89006CBFA2 /* coasterSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coasterSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDF289118AF7D89006CBFA2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEDF289318AF7D89006CBFA2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -546,6 +549,8 @@
 				CE5C5F4B18B4DD8000CB6D6D /* OnTrainLocation.m */,
 				CE5C5F5118B5308E00CB6D6D /* Train.h */,
 				CE5C5F5218B5308E00CB6D6D /* Train.m */,
+				CEBB140418BD13A500CB1421 /* Rider.h */,
+				CEBB140518BD13A500CB1421 /* Rider.m */,
 			);
 			name = elements;
 			sourceTree = "<group>";
@@ -1099,6 +1104,7 @@
 				CEDF299718AF7D8A006CBFA2 /* CCTransitionPageTurn.m in Sources */,
 				CEDF28C818AF7D89006CBFA2 /* CCActionCatmullRom.m in Sources */,
 				CEDF293F18AF7D89006CBFA2 /* CCParticleSystem.m in Sources */,
+				CEBB140618BD13A500CB1421 /* Rider.m in Sources */,
 				CEDF299418AF7D8A006CBFA2 /* CCTransition.m in Sources */,
 				CEDF293C18AF7D89006CBFA2 /* CCParticleExamples.m in Sources */,
 				CEDF293918AF7D89006CBFA2 /* CCParticleBatchNode.m in Sources */,
