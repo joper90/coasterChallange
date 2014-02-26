@@ -112,14 +112,13 @@
 -(void)moveAllRidersOff
 {
     CCLOG(@"GameLayer : moveAllRidersOff()");
-    int count = 0 ;
+    
     for (id key in [CoasterEngine instance].ridersMap)
     {
         Rider *rider = [[CoasterEngine instance]getRiderSpriteByKey:key andUpdateStatus:RIDER_MOVEMENT_OFFSCREEN];
         CCSprite *riderSprite = rider.riderSprite;
-        //BoardingLocation *b = [[CoasterEngine instance]getBoardingInfoByArrayLocation:count++];
-        rider.queueLocation = b.location;
-        [riderSprite runAction:b.movementSequence];
+        CCSequence *movement = [[CoasterEngine instance]getRiderMovedOffScreenLocation:rider];
+        [riderSprite runAction:movement];
     }
 }
 
