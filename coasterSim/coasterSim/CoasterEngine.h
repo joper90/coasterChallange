@@ -18,7 +18,7 @@
 typedef enum{
     WAITING_FOR_STATION = 0,
     STOPPED_IN_STATION,
-    BOARDED,
+    BOARDED
 } TrainState;
 
 
@@ -29,7 +29,6 @@ typedef enum{
 
 @property NSMutableDictionary *ridersMap;
 @property NSMutableArray *preBoardingLocations;
-@property NSMutableArray *trainSittingLocations;
 @property NSMutableArray *trains;
 @property TrainState     trainState;
 @property BOOL           isTrainMoving;
@@ -38,13 +37,13 @@ typedef enum{
 +(CoasterEngine*) instance;
 
 -(BOOL)isAlive;
--(Rider*) getRiderSpriteByKey:(id)key;
+-(Rider*) getRiderSpriteByKey:(id)key andUpdateStatus:(RiderState) newState;
 -(id) whichRiderIsTouched:(CGPoint) touchLocation;
 -(void) setRiderInitalTouchedPositionByTag:(id) riderTag withPosition:(CGPoint) location;
 -(void) updateRiderPostionByTag:(id) riderTag withOldCoords:(CGPoint) oldTouchLocation withCoords:(CGPoint)touchLocation;
 
 -(BoardingLocation*) getBoardingInfoByArrayLocation:(int)arrayLocation;
--(OnTrainLocation*) getOnTrainLocationByArrayLocation:(int)arrayLocation;
+-(id) getRiderSeatingLocation:(Rider*)rider;
 
 -(Train*) getTrainByArrayLocation:(int)arrayLocation;
 
@@ -56,7 +55,6 @@ typedef enum{
 
 -(void) privateSetupPreBoardingLocations;
 -(void) privateSetupRiderMap;
--(void) privateSetupSittingLocations;
 -(void) privateSetupTrains;
 
 @end

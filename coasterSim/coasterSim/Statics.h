@@ -35,11 +35,7 @@
 #define LOADUP_INC_START_Y          80
 
 //Location of where the riders sit on the 'train'
-#define SIT_START_X_POS             80
-#define SIT_START_Y_POS             400
-#define SIT_INC_START_X             100
-#define SIT_INC_START_Y             80
-
+#define SIT_Y_INC_AMOUNT             190
 
 //Where the riders start from, note off the bottom of the screen.
 #define RIDERS_START_X_POS          140

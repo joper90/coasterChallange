@@ -20,6 +20,7 @@
 -(void)moveAllTrainsOn;
 -(void)moveAllTrainsOff;
 -(void)moveRidersOntoTrain;
+-(void)moveAllRidersOff;
 
 
 @property id currentTag;

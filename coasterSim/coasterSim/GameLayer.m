@@ -29,7 +29,7 @@
         //Show the riders (initally off the screen)
         for (id key in [CoasterEngine instance].ridersMap)
         {
-            CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
+            CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key andUpdateStatus:RIDER_LOST].riderSprite;
             CCLOG(@"----> Adding rider :%@", key);
             [self addChild:rider];
         }
@@ -59,24 +59,28 @@
 
 -(void)moveRidersOntoTrain
 {
-    int count = 0;
+    CCLOG(@"GameLayer : moveRidersOntoTrain()");
     for (id key in [CoasterEngine instance].ridersMap)
     {
-        CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
-        OnTrainLocation *oTrain = [[CoasterEngine instance]getOnTrainLocationByArrayLocation:count++];
-        [rider runAction:oTrain.movementSequence];
+        Rider *rider = [[CoasterEngine instance]getRiderSpriteByKey:key andUpdateStatus:RIDER_BOARDED];
+        CCSprite *riderSprite = rider.riderSprite;
+        CCSequence *seq = [[CoasterEngine instance]getRiderSeatingLocation:rider];
+        [riderSprite runAction:seq];
     }
     
 }
 
 -(void)moveToBoarding
 {
+    CCLOG(@"GameLayer : moveToBoarding()");
     int count = 0 ;
     for (id key in [CoasterEngine instance].ridersMap)
     {
-        CCSprite *rider = [[CoasterEngine instance]getRiderSpriteByKey:key].riderSprite;
+        Rider *rider = [[CoasterEngine instance]getRiderSpriteByKey:key andUpdateStatus:RIDER_QUEUED];
+        CCSprite *riderSprite = rider.riderSprite;
         BoardingLocation *b = [[CoasterEngine instance]getBoardingInfoByArrayLocation:count++];
-        [rider runAction:b.movementSequence];
+        rider.queueLocation = b.location;
+        [riderSprite runAction:b.movementSequence];
     }
 }
 
@@ -102,6 +106,20 @@
     for (Train *t in [CoasterEngine instance].trains)
     {
         [t.trainSprite runAction:t.moveOffScreen];
+    }
+}
+
+-(void)moveAllRidersOff
+{
+    CCLOG(@"GameLayer : moveAllRidersOff()");
+    int count = 0 ;
+    for (id key in [CoasterEngine instance].ridersMap)
+    {
+        Rider *rider = [[CoasterEngine instance]getRiderSpriteByKey:key andUpdateStatus:RIDER_MOVEMENT_OFFSCREEN];
+        CCSprite *riderSprite = rider.riderSprite;
+        //BoardingLocation *b = [[CoasterEngine instance]getBoardingInfoByArrayLocation:count++];
+        rider.queueLocation = b.location;
+        [riderSprite runAction:b.movementSequence];
     }
 }
 
@@ -152,6 +170,9 @@
                 [self moveAllTrainsOff];
                 //Now set the state thatn the train is in the station.
                 [[CoasterEngine instance]setTrainState:WAITING_FOR_STATION];
+                
+                //Now set to move the riders with it.
+                [self moveAllRidersOff];
                 break;
             
             case WAITING_FOR_STATION:
